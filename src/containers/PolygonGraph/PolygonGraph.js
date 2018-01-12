@@ -58,7 +58,7 @@ class PolygonGraph extends Component {
     }
 
     createCanvas = () => {
-        let canvas = document.getElementById('polygon-graph');
+        const canvas = this.canvas
         let ctx = canvas.getContext('2d');
 
         this.circle(canvas, ctx); // Used for visual test
@@ -97,7 +97,7 @@ class PolygonGraph extends Component {
     render = () => {
         return (
             <div>
-                <canvas id='polygon-graph' width="500" height="500"></canvas>
+                <canvas ref={(canvas) => {this.canvas = canvas}} width="500" height="500"></canvas>
                 <PolygonGraphControll
                     changeGraphBackground={this.changeGraphBackground}
                     changeGraphBorder={this.changeGraphBorder} />
